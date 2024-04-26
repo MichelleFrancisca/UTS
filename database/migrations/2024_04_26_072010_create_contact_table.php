@@ -14,8 +14,17 @@ class CreateContactTable extends Migration
     public function up()
     {
         Schema::create('contact', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('Code', 10)->unique()->required();
+            $table->string('Name', 100)->required();
+            $table->string('Email', 100)->unique()->required();
+            $table->string('Phone', 20)->required();
+            $table->string('Mobile', 20)->required();
+            $table->text('Street');
+            $table->text('City');
+            $table->text('State');
+            $table->text('Zip');
+            $table->text('Country');
+            $table->text('VAT');
         });
     }
 
