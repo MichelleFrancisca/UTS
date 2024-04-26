@@ -9,7 +9,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Code</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -21,15 +20,14 @@
             <tbody>
                 @foreach($contacts as $contact)
                 <tr>
-                    <td>{{ $contact->id }}</td>
                     <td>{{ $contact->Code }}</td>
                     <td>{{ $contact->Name }}</td>
                     <td>{{ $contact->Email }}</td>
                     <td>{{ $contact->Phone }}</td>
                     <td>{{ $contact->Mobile }}</td>
                     <td>
-                        <a href="{{ route('contacts.edit', $contact->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                        <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" style="display: inline;">
+                        <a href="{{ route('contacts.edit', $contact->Code) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="{{ route('contacts.destroy', $contact->Code) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</button>
